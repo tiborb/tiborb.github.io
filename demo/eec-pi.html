@@ -23,7 +23,7 @@
 		});
 	</script>
 	<!-- End data layer -->
-  	<!-- Google Tag Manager -->
+	<!-- Google Tag Manager -->
 	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -41,22 +41,40 @@ function add_to_cart() {
 	    'currencyCode': 'EUR',
 	    'add': {                                // 'add' actionFieldObject measures.
 	      'products': [{                        //  adding a product to a shopping cart.
-		'name': 'BoscH Tshirt',
+		'name': 'Bosch Tshirt',
 		'id': '12345',
 		'price': '15.25',
-		'brand': 'Google',
+		'brand': 'Bosch',
 		'category': 'Apparel',
-		'variant': 'Gray',
+		'variant': 'Blue',
 		'quantity': 1
 	       }]
 	    }
 	  }
 	});
-	
 	console.log("data layer is: ", dataLayer);
+	}
+
+	function remove_from_cart() {
+		dataLayer.push({
+		  'event': 'removeFromCart',
+		  'ecommerce': {
+		    'remove': {                               // 'remove' actionFieldObject measures.
+		      'products': [{                          //  removing a product to a shopping cart.
+			'name': 'Bosch Tshirt',
+			'id': '12345',
+			'price': '15.25',
+			'brand': 'Bosch',
+			'category': 'Apparel',
+			'variant': 'Blue',
+			'quantity': 1
+		      }]
+		    }
+		  }
+		});
 	}
 </script>
 <button type="button" onclick="add_to_cart()">Add to cart</button>
-	
+<button type="button" onclick="remove_from_cart()">Remove from cart</button>
 </body>
 </html>
