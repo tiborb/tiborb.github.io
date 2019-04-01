@@ -53,28 +53,68 @@ function add_to_cart() {
 	  }
 	});
 	console.log("data layer is: ", dataLayer);
-	}
+}
 
-	function remove_from_cart() {
-		dataLayer.push({
-		  'event': 'removeFromCart',
-		  'ecommerce': {
-		    'remove': {                               // 'remove' actionFieldObject measures.
-		      'products': [{                          //  removing a product to a shopping cart.
-			'name': 'Bosch Tshirt',
-			'id': '12345',
-			'price': '15.25',
-			'brand': 'Bosch',
-			'category': 'Apparel',
-			'variant': 'Blue',
-			'quantity': 1
-		      }]
-		    }
-		  }
-		});
-	}
+function remove_from_cart() {
+	dataLayer.push({
+	  'event': 'removeFromCart',
+	  'ecommerce': {
+	    'remove': {                               // 'remove' actionFieldObject measures.
+	      'products': [{                          //  removing a product to a shopping cart.
+		'name': 'Bosch Tshirt',
+		'id': '12345',
+		'price': '15.25',
+		'brand': 'Bosch',
+		'category': 'Apparel',
+		'variant': 'Blue',
+		'quantity': 1
+	      }]
+	    }
+	  }
+	});
+}
+
+function funnel_step1() {
+	dataLayer.push({
+	  'event': 'checkout',
+	  'ecommerce': {
+	    'checkout': {
+	      'actionField': {'step': 1},
+	      'products': [{
+		  'name': 'Bosch Tshirt',
+		  'id': '12345',
+		  'price': '15.25',
+		  'brand': 'Bosch',
+		  'category': 'Smart Home', // parent_cateogry / sub_cat / subsubcat / category (up to 5 levels) separated by / (slash)
+		  'variant': 'Gray'  // Silver 64GB / Black 64GB / Silver 32GB  (concatenate dimensions/attributes)
+	     }]
+	   }
+	 },
+	});
+}
+	
+function funnel_step2() {
+	dataLayer.push({
+	  'event': 'checkout',
+	  'ecommerce': {
+	    'checkout': {
+	      'actionField': {'step': 2},
+	      'products': [{
+		  'name': 'Bosch Tshirt',
+		  'id': '12345',
+		  'price': '15.25',
+		  'brand': 'Bosch',
+		  'category': 'Smart Home', // parent_cateogry / sub_cat / subsubcat / category (up to 5 levels) separated by / (slash)
+		  'variant': 'Gray'  // Silver 64GB / Black 64GB / Silver 32GB  (concatenate dimensions/attributes)
+	     }]
+	   }
+	 },
+	});
+}
 </script>
 <button type="button" onclick="add_to_cart()">Add to cart</button>
 <button type="button" onclick="remove_from_cart()">Remove from cart</button>
+<button type="button" onclick="funnel_step1()">Funnel Step 1</button>
+<button type="button" onclick="funnel_step2()">Funnel Step 2</button>
 </body>
 </html>
