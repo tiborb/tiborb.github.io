@@ -11,6 +11,7 @@
 	<!-- End Google Tag Manager -->
 </head>
 <body>
+	<h1>Test EEC</h1>
 <script>
 // Measures product impressions and also tracks a standard
 // pageview for the tag configuration.
@@ -109,49 +110,5 @@ dataLayer.push({
   }
 </script>
 <!-- End cookie manager integration -->
-
-<h2>Cart:</h2>
-<nav>
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="checkout.html">Checkout</a></li>
-    <li><a href="logout.html" data-click_name="Sign Out" data-click_category="header">Log out</a></li>
-  </ul>
-</nav>
-<div id="cart"></div>
-
-<script type="text/javascript">
-  var cart = [];
-  function getProduct() {
-    var products = [{
-      "name": "Rock",
-      "category": "one",
-      "price": 10
-    },
-    {
-      "name": "Paper",
-      "category": "two",
-      "price": 20
-    },
-    {
-      "name": "Scissors",
-      "category": "three",
-      "price": 5
-    }]
-    return products[Math.floor(Math.random() * Math.floor(products.length))];
-  }
-
-  function addToCart(q){
-    var product = getProduct();
-    product.quantity = q;
-    cart.push(product);
-    return cart;
-  }
-  var quantity = Math.floor(Math.random() * Math.floor(100));
-  var cart = addToCart(quantity);
-  console.log(cart);
-
-  document.getElementById("cart").innerHTML = JSON.stringify(cart)
-</script>
 </body>
 </html>
