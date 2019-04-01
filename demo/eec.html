@@ -2,6 +2,27 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
   <title>Sample HTML Page</title>
+	<!-- Data layer -->
+	<script>
+		var dataLayer = dataLayer || [];
+		dataLayer.push({
+		  'ecommerce': {
+		    'currencyCode': 'EUR',                       // Local currency is optional.
+		    'impressions': [
+		     {
+		       'name': 'Triblend Android T-Shirt',       // Name or ID is required.
+		       'id': '12345',
+		       'price': '15.25',
+		       'brand': 'Google',
+		       'category': 'Apparel',
+		       'variant': 'Gray',
+		       'list': 'Search Results',
+		       'position': 1
+		     }]
+		  }
+		});
+	</script>
+	<!-- End data layer -->
   	<!-- Google Tag Manager -->
 	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -11,104 +32,6 @@
 	<!-- End Google Tag Manager -->
 </head>
 <body>
-	<h1>Test EEC</h1>
-<script>
-// Measures product impressions and also tracks a standard
-// pageview for the tag configuration.
-// Product impressions are sent by pushing an impressions object
-// containing one or more impressionFieldObjects.
-dataLayer.push({
-  'ecommerce': {
-    'currencyCode': 'EUR',                       // Local currency is optional.
-    'impressions': [
-     {
-       'name': 'Triblend Android T-Shirt',       // Name or ID is required.
-       'id': '12345',
-       'price': '15.25',
-       'brand': 'Google',
-       'category': 'Apparel',
-       'variant': 'Gray',
-       'list': 'Search Results',
-       'position': 1
-     }]
-  }
-});
-</script>
-<!-- Start cookie manager integration -->
-<link rel="stylesheet" href="https://btm.bosch.com/rb/cookie/1.2.1/bosch-privacy-settings-v2.min.css">
-<!-- Optionally include font style Information if neccesary -->
-<style>
-      @font-face {
-        font-family: "boschsans";
-        font-style: normal;
-        font-weight: 200;
-        src: url("https://btm.bosch.com/rb/cookie/fonts/fonts/BoschSans-Light.woff2") format("woff2"), url("https://btm.bosch.com/rb/cookie/fonts/BoschSans-Light.woff") format("woff"); }
- 
-      @font-face {
-        font-family: "boschsans";
-        font-style: normal;
-        font-weight: normal;
-        src: url("https://btm.bosch.com/rb/cookie/fonts/BoschSans-Regular.woff2") format("woff2"), url("https://btm.bosch.com/rb/cookie/fonts/BoschSans-Regular.woff") format("woff"); }
- 
-      @font-face {
-        font-family: "boschsans";
-        font-style: normal;
-        font-weight: 500;
-        src: url("https://btm.bosch.com/rb/cookie/fonts/BoschSans-Medium.woff2") format("woff2"), url("https://btm.bosch.com/rb/cookie/fonts/BoschSans-Medium.woff") format("woff"); }
- 
-      @font-face {
-        font-family: "boschsans";
-        font-style: normal;
-        font-weight: bold;
-        src: url("https://btm.bosch.com/rb/cookie/fonts/BoschSans-Bold.woff2") format("woff2"), url("https://btm.bosch.com/rb/cookie/fonts/BoschSans-Bold.woff") format("woff"); }
- 
-      .BoschPrivacySettingsV2 {
-        font-family: "boschsans", "Helvetica Neue", Helvetica, Arial, sans-serif; }
-</style>
-<script src="https://btm.bosch.com/rb/cookie/1.2.1/bosch-privacy-settings-v2.min.js"></script>
-<!-- Configuration via JSON in a separate script tag -->
-<script type="application/json" id="bosch-privacy-settings-v2-config">
-      {
-        "comfortCookieDescription": {
-          "link": {
-            "url": "target.html"
-          }
-        },
-        "marketingCookieDescription": {
-          "link": {
-            "url": "target.html"
-          }
-        },
-        "smallprint": {
-          "policy": {
-            "link": {
-              "url": "target.html"
-            }
-          },
-          "imprint": {
-            "link": {
-              "url": "target.html"
-            }
-          }
-        },
-        "localizationDirPath": "https://btm.bosch.com/rb/cookie/1.2.1/i18n",
-        "allowCrossOrigin": true,
-        "showLanguageSelector": true,
-        "locale": "en-gb",
-        "triggerLinkSelector": "[data-show-privacy-settings]",
-        "showComfortOptIn": false,
-        "showMarketingOptIn": true,
-        "showUniversalOptIn": false
-      }
-</script>
-<!-- Add own conditions -->
-<script>
-  function BoschPrivacyCallback_OnUpdate(consent) {
-     if (consent.marketing) {
-        dataLayer.push({'event':'bosch_privacy_update_marketing_on'});
-     }
-  }
-</script>
-<!-- End cookie manager integration -->
+<h1>Test EEC</h1>
 </body>
 </html>
