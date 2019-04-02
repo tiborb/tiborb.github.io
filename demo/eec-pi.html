@@ -112,9 +112,41 @@ function funnel_step2() {
 	});
 }
 </script>
-<button type="button" onclick="add_to_cart()">Add to cart</button>
-<button type="button" onclick="remove_from_cart()">Remove from cart</button>
-<button type="button" onclick="funnel_step1()">Funnel Step 1</button>
-<button type="button" onclick="funnel_step2()">Funnel Step 2</button>
+
+	
+<script>
+  function fireEvent() {
+	  var events = [
+	    "Play",
+	    "Pause",
+	    "Stop",
+	    "Skip",
+	    "I'm a teapot"
+	  ]
+	  return events[Math.floor(Math.random() * Math.floor(events.length))];
+	}
+  document.getElementById("custom-event").onclick = function() {
+    var event = fireEvent();
+    console.log(event)
+    // track now!
+    dataLayer.push({
+	  "event" : "GAEvent",
+	  "eventCategory" : "custom",
+	  "eventAction" : "click",
+	  "eventLabel" : event,
+	  "eventValue" : 42
+	});
+  };
+</script>
+
+<ul>
+<li><button type="button" onclick="add_to_cart()">Add to cart</button></li>
+<li><button type="button" onclick="remove_from_cart()">Remove from cart</button></li>
+<li><button type="button" onclick="funnel_step1()">Funnel Step 1</button></li>
+<li><button type="button" onclick="funnel_step2()">Funnel Step 2</button></li>
+<li><a id="custom-event" href="#">Fire custom event</a></li>
+<li><a href="https://www.bosch.com">External Link</a></li>
+<li><a href="https://www.digitalanalyticsassociation.org/Files/PDF_standards/WebAnalyticsDefinitions.pdf">Download Definitions</a></li>
+</ul>
 </body>
 </html>
