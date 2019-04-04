@@ -86,6 +86,7 @@
   function BoschPrivacyCallback_OnUpdate(consent) {
      if (consent.marketing) {
         dataLayer.push({'event':'bosch_privacy_update_marketing_on'});
+	console.log("event pushed");
      }
   }
 </script>
