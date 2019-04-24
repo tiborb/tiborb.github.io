@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Load Cookie Manager Lib from CDN -->
+<script src="//btm.bosch.com/rb/cookie/2.0.0/bosch-privacy-settings-v2.min.js"></script>
+<script type="application/json" id="bosch-privacy-settings-v2-config">{  
+	"privacySettings": {
+    "localizationDirPath": "https://btm.bosch.com/rb/cookie/2.0.0/i18n",
+    "allowCrossOrigin":true,
+	"comfortCookieDescription": {
+			"link": {
+				"url": "http://google.com"
+			}
+	    },
+    "smallprint": {
+		"policy": {
+			"link": {
+				"url": "http://google.com"
+			}
+		}
+    },
+    "triggerLinkSelector": "[data-show-privacy-settings]"
+    ,"i18n": {
+		"de": {
+	        "comfortCookieDescription": {
+					"link": {
+							"label": "Learn more"
+						}
+				}
+	        ,"smallprint": {
+				"settings": {
+						"text": "Sie können ihre Entscheidung jeder Zeit widerrufen."
+					}
+				,"policy": {
+					"linkLabel": "Learn more"
+			    }
+	        }
+			}
+		}
+	}
+}</script>
+  <!-- Add own conditions -->
+  <script>
+    // example for callback usage
+    function BoschPrivacyCallback_OnUpdate(consent) {
+      console.log(new Date().toUTCString(), 'BoschPrivacyCallback_OnUpdate called.', consent);
+      if (consent.marketing) {
+        // Run code that sets marketing cookie. tracking according to CD 02900-008!
+        console.log('[callback] marketing is on');
+        // *** Trigger GTM Event: bosch_privacy_update_<comfort|marketing>_<on|off> ***
+        dataLayer.push({'event':'bosch_privacy_update_marketing_on'});
+      } else {
+        // No marketing
+        console.log('[callback] marketing is off');
+      }
+      // End own script
+    }
+  </script>
+  <!-- End cookie manager integration using custom HTML in GTM -->
+</head>
+<body>
+<p>ok</p>
+</body>
+</html>
